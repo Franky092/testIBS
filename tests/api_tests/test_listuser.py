@@ -8,7 +8,7 @@ from pages.api_pages.Base_api_page import UsersAPIPage
     (1, 6, 200),
     (1, 10, 200)
 ])
-def test_get_users(base_url, page, per_page, expected_status):
+def test_get_users(page, per_page, expected_status):
     api_page = UsersAPIPage()
     response = api_page.get_users(page=page, per_page=per_page)
     assert response.status_code == expected_status

@@ -9,7 +9,7 @@ from pages.web_pages.home_page import HomePage
 @allure.label("owner", "admin")
 @allure.title("Проверка результата запроса list user")
 @allure.link("https://reqres.in/")
-def test_listuser(get_webdriver, base_url_web):
+def test_listuser(get_webdriver):
     with allure.step("Загружаем главную страницу"):
         home_page = HomePage(get_webdriver)
         home_page.open()
@@ -29,7 +29,7 @@ def test_listuser(get_webdriver, base_url_web):
         pass
     with allure.step("Отправляем апи запрос"):
         from tests.api_tests.test_listuser import test_get_users
-        apistatuscode = test_get_users(base_url="https://reqres.in/api", page=1, per_page=6, expected_status=200)[0]
+        apistatuscode = test_get_users(page=1, per_page=6, expected_status=200)[0]
     pass
     with allure.step("Проверяем статус код со страницы и с АПИ"):
         assert statuscode == apistatuscode
@@ -44,7 +44,7 @@ def test_listuser(get_webdriver, base_url_web):
     pass
     with allure.step("Отправляем апи запрос и возвращаем тело"):
         from tests.api_tests.test_listuser import test_get_users
-        apibodyresponce = test_get_users(base_url="https://reqres.in/api", page=2, per_page=6, expected_status=200)[1]
+        apibodyresponce = test_get_users(page=2, per_page=6, expected_status=200)[1]
         apibodyresponce = json.loads(apibodyresponce)
     pass
     with allure.step("Проверяем статус код со страницы и с АПИ"):

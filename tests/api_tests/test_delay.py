@@ -1,7 +1,5 @@
 import pytest
 import requests
-
-
 @pytest.mark.get_users
 @pytest.mark.parametrize('delay, per_page, expected_status', [
     (1, 6, 200),
