@@ -19,6 +19,7 @@ def test_listuser(get_webdriver, base_url_web):
         WebDriverWait(get_webdriver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "div.endpoints ul li:nth-of-type(1)"))).click()
         time.sleep(1)
+
         pass
     with allure.step("Получаем статус код с сайта"):
     # get_webdriver.execute_script("window.scrollTo(0, 1000)")
